@@ -104,7 +104,7 @@ brew install graphviz
 ## 可能出现的问题：
 ### 1.虚拟机内存分配不足导致运行失败
 
-![问题一](./assets/pics/Question1.png)
+![问题一](./assets/pics/memory_error.png)
 
 解决方法：
 修改虚拟机内存设置，具体修改方法可参照百度经验网址：
@@ -113,7 +113,7 @@ https://jingyan.baidu.com/article/925f8cb8a62e1ac0dde05602.html
 
 ### 2.环境变量配置错误
 
-![问题二](./assets/pics/Question2.png)
+![问题二](./assets/pics/classpath_error.png)
 
 解决方法：确定环境变量中$JAVA_HOME和$CLASSPATH是否与前期准备中的一致。
 
