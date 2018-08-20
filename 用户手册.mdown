@@ -1,0 +1,123 @@
+# 用户手册
+
+## 前期准备：
+### 1.官网下载JDK1.8
+
+下载网址：
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+选择图中对应平台的文件下载并解压到任选文件夹中：
+
+![jdk1.8下载](./assets/pics/jdk_download.png)
+
+
+### 2.在Github上下载源码
+
+下载网址：
+https://github.com/PhoenixZSDX/RDA_code
+
+点击图中的按钮进行下载，并将下载的zip文件进行解压到任意文件夹中：
+
+![源码下载](./assets/pics/src_download.png)
+
+
+### 3.配置环境变量
+
+在我们刚刚下载解压的文件夹中，我们要配置相关java的环境变量，并将soot和poi文件夹中的相关jar包添加到环境变量中，这里可以在改文件夹中新建一个.bash_profile文件来配置环境变量如下：
+
+![环境变量](./assets/pics/classpath.png)
+
+这里只需要将对应的文件目录改为自己解压之后的RDA文件目录以及步骤1中jdk安装解压的文件目录即可。
+
+再写好并保存.bash_profile文件之后，要在命令行输入source .bash_profile命令让环境变量配置文件生效。之后再输入echo $CLASSPATH命令，若正确显示所配置得环境变量即可：
+
+![显示环境变量](./assets/pics/show_classpath.png)
+
+### 4.安装graphviz
+
+linux环境下：
+
+```
+sudo apt-get install graphviz
+```
+
+mac osx环境下：
+
+首先安装homebrew：
+
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+之后利用homebrew安装graphviz：
+
+```
+brew install graphviz
+```
+
+注：运行第2步时可能会提示-bash: brew: command not found 
+解决办法： 
+终端输入sudo vim .bash_profile， 
+输入i进入输入模式， 
+添加export PATH="/usr/local/bin:$PATH" , 
+按esc键退出输入模式， 
+输入:wq退出并保存 
+最后输入source .bash_profile使配置生效。
+
+
+## 运行步骤：
+### 1.进入我们github上下载的Rda文件夹中，打开命令行执行命令java RdaUI运行：
+
+![运行程序](./assets/pics/run_code.png)
+
+### 2.会出现以下初始UI，点击“文件”，选择“打开(O)”
+
+![初始UI](./assets/pics/initial_UI.png)
+
+### 3.选择文件页面
+
+* 选择要选择的java class:
+
+![选择java class](./assets/pics/select_class.png)
+
+注意：打开文件时，必须.java文件和.class文件位于同一文件目录中，才能正确显示源码。
+
+### 4.选择文件后，进入分析方法页面
+
+* 选择获取分析结果(点击"操作"，选择"分析(A)"，选择"获得Excel(E)")：
+
+![获取excel](./assets/pics/get_excel.png)
+
+得到的分析结果excel文件会自动弹出打开
+
+![excel的显示](./assets/pics/show_excel.png)
+
+* 选择获取控制流程图CFG(点击"操作"，选择"分析(A)"，选择"获得CFG图(C)")：
+ 
+![获取CFG](./assets/pics/get_CFG.png)
+
+得到的CFG图会自动打开(保存在sootOutput目录下)
+
+![CFG的显示](./assets/pics/show_CFG.png)
+
+
+## 可能出现的问题：
+### 1.虚拟机内存分配不足导致运行失败
+
+![问题一](./assets/pics/Question1.png)
+
+解决方法：
+修改虚拟机内存设置，具体修改方法可参照百度经验网址：
+https://jingyan.baidu.com/article/925f8cb8a62e1ac0dde05602.html
+
+
+### 2.环境变量配置错误
+
+![问题二](./assets/pics/Question2.png)
+
+解决方法：确定环境变量中$JAVA_HOME和$CLASSPATH是否与前期准备中的一致。
+
+
+
+
+
